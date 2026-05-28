@@ -389,8 +389,8 @@ export default function Index() {
             <div className="p-6 rounded-lg" style={{ background: C.bg }}>
               <h4 className="font-serif text-xl mb-4" style={{ color: C.brown }}>Завтраки</h4>
               {[
-                { name: "Молочная каша", w: "300 г", price: "200 р" },
-                { name: "Яичница", w: "150 г", price: "160 р" },
+                { name: "Молочная каша", w: "300 г", price: "250 р" },
+                { name: "Яичница", w: "150 г", price: "300 р" },
                 { name: "Ленивые вареники", w: "200 г", price: "215 р" },
                 { name: "Омлет", w: "150 г", price: "165 р" },
                 { name: "Блинчики со сметаной", w: "180 г", price: "165 р" },
@@ -408,15 +408,15 @@ export default function Index() {
             <div className="p-6 rounded-lg" style={{ background: C.bg }}>
               <h4 className="font-serif text-xl mb-4" style={{ color: C.brown }}>Блины</h4>
               {[
-                { name: "Блины со сгущёнкой и орехами", w: "447 г", price: "380 р" },
-                { name: "Блины с вареньем", w: "374 г", price: "250 р" },
-                { name: "Блины со сметаной", w: "350 г", price: "140 р" },
-                { name: "Блины с мёдом", w: "350 г", price: "190 р" },
-                { name: "Блины с творогом", w: "350 г", price: "180 р" },
-                { name: "Блины с ягодами", w: "350 г", price: "280 р" },
-                { name: "Блины с грибами и картофелем", w: "350 г", price: "195 р" },
-                { name: "Блины с мясом и картофелем", w: "350 г", price: "195 р" },
-                { name: "Блины с семгой", w: "350 г", price: "390 р" },
+                { name: "Блины со сгущёнкой и орехами", w: "447 г", price: "430 р" },
+                { name: "Блины с вареньем", w: "374 г", price: "300 р" },
+                { name: "Блины со сметаной", w: "350 г", price: "190 р" },
+                { name: "Блины с мёдом", w: "350 г", price: "240 р" },
+                { name: "Блины с творогом", w: "350 г", price: "230 р" },
+                { name: "Блины с ягодами", w: "350 г", price: "330 р" },
+                { name: "Блины с грибами и картофелем", w: "350 г", price: "245 р" },
+                { name: "Блины с мясом и картофелем", w: "350 г", price: "245 р" },
+                { name: "Блины с семгой", w: "350 г", price: "440 р" },
               ].map(i => (
                 <div key={i.name} className="flex justify-between items-baseline py-1.5 border-b" style={{ borderColor: "rgba(193,122,44,0.15)" }}>
                   <span className="text-sm" style={{ color: C.bark }}>{i.name} <span style={{ color: C.smoke, fontSize: 11 }}>{i.w}</span></span>
