@@ -14,7 +14,7 @@ export default function About() {
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-20">
           <h1 className="font-serif text-5xl md:text-7xl text-white mb-4 leading-tight">Емеля</h1>
           <p className="text-xl text-white/80 mb-8 max-w-lg">
-            Гостинично-банный комплекс на берегу озера Банное в Башкирии
+            Гостевой комплекс Емеля на берегу озера Банное в Башкирии
           </p>
           <Link to="/houses" className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-white font-medium transition hover:opacity-90" style={{ background: "#C17A2C" }}>
             Посмотреть домики
