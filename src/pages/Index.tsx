@@ -100,6 +100,31 @@ export default function Index() {
       <section id="rooms" className="py-20 px-4" style={{ background: "#F5EDE0" }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-4xl text-[#7B3320] text-center mb-12">Проживание</h2>
+
+          {/* Домики */}
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {[
+              { img: ROOM_IMG, name: "Домик 1", desc: "Уютный трёхкомнатный коттедж с видом на лес. Всё необходимое для комфортного отдыха до 6 человек." },
+              { img: SAUNA_IMG, name: "Домик 2", desc: "Просторный коттедж с зоной барбекю и выходом на природу. Идеален для семей и компаний до 6 человек." },
+              { img: HERO_IMG, name: "Домик 3", desc: "Уютный домик с панорамными окнами и открытой верандой. Отличный выбор для романтического отдыха." },
+            ].map(r => (
+              <div key={r.name} className="rounded-xl overflow-hidden shadow-md bg-[#FBF5E8]">
+                <img src={r.img} alt={r.name} className="w-full h-52 object-cover" />
+                <div className="p-5">
+                  <h3 className="font-serif text-xl text-[#7B3320] mb-2">{r.name}</h3>
+                  <p className="text-sm text-[#8C7E6E] mb-4 leading-relaxed">{r.desc}</p>
+                  <a href="#booking" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-white text-sm font-medium transition hover:opacity-90"
+                    style={{ background: "#C17A2C" }}>
+                    Забронировать
+                    <Icon name="ArrowRight" size={14} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Цены */}
+          <h3 className="font-serif text-2xl text-[#7B3320] text-center mb-6">Цены за сутки до 6 человек</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { img: ROOM_IMG, title: "Будние дни", price: "6 000 руб." },
