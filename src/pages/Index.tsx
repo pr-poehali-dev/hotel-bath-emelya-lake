@@ -208,9 +208,9 @@ export default function Index() {
               <Cottage2Gallery />
               <div className="p-5">
                 <h3 className="font-serif text-xl text-[#7B3320] mb-2">Домик 2</h3>
-                <p className="text-sm text-[#8C7E6E] mb-3 leading-relaxed">Просторный двухэтажный сруб с баней, открытой мангальной зоной и уютной верандой. На первом этаже — гостиная с кожаным диваном и кухня, на втором — три спальни.</p>
+                <p className="text-sm text-[#8C7E6E] mb-3 leading-relaxed">Просторный двухэтажный сруб с баней, открытой мангальной зоной и уютной верандой. На первом этаже — гостиная с кожаным диваном и кухня, на втором — две спальни.</p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  {["Баня", "Мангал", "3 спальни", "Кухня", "Веранда", "До 6 человек"].map(tag => (
+                  {["Баня", "Мангал", "2 спальни", "Кухня", "Веранда", "До 6 человек"].map(tag => (
                     <span key={tag} className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(193,122,44,0.12)", color: "#7B3320" }}>{tag}</span>
                   ))}
                 </div>
@@ -227,9 +227,9 @@ export default function Index() {
               <CottageGallery photos={COTTAGE3_PHOTOS} name="Домик 3" />
               <div className="p-5">
                 <h3 className="font-serif text-xl text-[#7B3320] mb-2">Домик 3</h3>
-                <p className="text-sm text-[#8C7E6E] mb-3 leading-relaxed">Стильный двухэтажный коттедж в зелёных тонах с баней, купелью и крытой беседкой. Три уютные спальни, гостиная с бирюзовым диваном и кухня с антикварным буфетом.</p>
+                <p className="text-sm text-[#8C7E6E] mb-3 leading-relaxed">Стильный двухэтажный коттедж в зелёных тонах с баней, купелью и крытой беседкой. Две уютные спальни, гостиная с бирюзовым диваном и кухня с антикварным буфетом.</p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  {["Баня", "Купель", "Беседка", "3 спальни", "Кухня", "До 6 человек"].map(tag => (
+                  {["Баня", "Купель", "Беседка", "2 спальни", "Кухня", "До 6 человек"].map(tag => (
                     <span key={tag} className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(193,122,44,0.12)", color: "#7B3320" }}>{tag}</span>
                   ))}
                 </div>
