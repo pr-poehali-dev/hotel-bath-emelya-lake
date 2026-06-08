@@ -13,6 +13,59 @@ const NAV_LINKS = [
   { label: "Контакты", href: "#contacts" },
 ];
 
+const COTTAGE2_PHOTOS = [
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/b2c74da1-4150-4523-bd82-67a78166ab67.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/1a210674-408c-4caf-97be-a134ebeb33bf.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/cb5d7f47-68d8-4559-814d-d67809119dd8.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/2fdbf18b-64b1-42d7-9464-3cade5a65c49.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/8017cdea-6442-4533-b28b-62312fe0985c.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/c2eaef13-661e-4d2c-9473-8c665c7f580b.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/0e6a91fd-5660-473f-91b3-be961090492e.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/17d0eb7b-eb8a-4892-b333-cb91f249273d.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/64b22f52-cb4f-4449-a02a-a32b1acacb6a.jpg",
+];
+
+function Cottage2Gallery() {
+  const [current, setCurrent] = useState(0);
+  const total = COTTAGE2_PHOTOS.length;
+  return (
+    <div className="relative w-full h-52 bg-black overflow-hidden">
+      <img
+        src={COTTAGE2_PHOTOS[current]}
+        alt={`Домик 2 — фото ${current + 1}`}
+        className="w-full h-full object-cover transition-opacity duration-300"
+      />
+      <button
+        onClick={() => setCurrent((current - 1 + total) % total)}
+        className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center opacity-80 hover:opacity-100 transition"
+        style={{ background: "rgba(0,0,0,0.45)" }}
+      >
+        <Icon name="ChevronLeft" size={18} style={{ color: "#fff" }} />
+      </button>
+      <button
+        onClick={() => setCurrent((current + 1) % total)}
+        className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center opacity-80 hover:opacity-100 transition"
+        style={{ background: "rgba(0,0,0,0.45)" }}
+      >
+        <Icon name="ChevronRight" size={18} style={{ color: "#fff" }} />
+      </button>
+      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1">
+        {COTTAGE2_PHOTOS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className="w-1.5 h-1.5 rounded-full transition-all"
+            style={{ background: i === current ? "#fff" : "rgba(255,255,255,0.45)" }}
+          />
+        ))}
+      </div>
+      <div className="absolute top-2 right-2 px-2 py-0.5 rounded text-xs text-white" style={{ background: "rgba(0,0,0,0.4)" }}>
+        {current + 1} / {total}
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -103,24 +156,47 @@ export default function Index() {
 
           {/* Домики */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[
-              { img: ROOM_IMG, name: "Домик 1", desc: "Уютный трёхкомнатный коттедж с видом на лес. Всё необходимое для комфортного отдыха до 6 человек." },
-              { img: SAUNA_IMG, name: "Домик 2", desc: "Просторный коттедж с зоной барбекю и выходом на природу. Идеален для семей и компаний до 6 человек." },
-              { img: HERO_IMG, name: "Домик 3", desc: "Уютный домик с панорамными окнами и открытой верандой. Отличный выбор для романтического отдыха." },
-            ].map(r => (
-              <div key={r.name} className="rounded-xl overflow-hidden shadow-md bg-[#FBF5E8]">
-                <img src={r.img} alt={r.name} className="w-full h-52 object-cover" />
-                <div className="p-5">
-                  <h3 className="font-serif text-xl text-[#7B3320] mb-2">{r.name}</h3>
-                  <p className="text-sm text-[#8C7E6E] mb-4 leading-relaxed">{r.desc}</p>
-                  <a href="#booking" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-white text-sm font-medium transition hover:opacity-90"
-                    style={{ background: "#C17A2C" }}>
-                    Забронировать
-                    <Icon name="ArrowRight" size={14} />
-                  </a>
-                </div>
+            {/* Домик 1 */}
+            <div className="rounded-xl overflow-hidden shadow-md bg-[#FBF5E8]">
+              <img src={ROOM_IMG} alt="Домик 1" className="w-full h-52 object-cover" />
+              <div className="p-5">
+                <h3 className="font-serif text-xl text-[#7B3320] mb-2">Домик 1</h3>
+                <p className="text-sm text-[#8C7E6E] mb-4 leading-relaxed">Уютный трёхкомнатный коттедж с видом на лес. Всё необходимое для комфортного отдыха до 6 человек.</p>
+                <a href="#booking" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-white text-sm font-medium transition hover:opacity-90"
+                  style={{ background: "#C17A2C" }}>
+                  Забронировать
+                  <Icon name="ArrowRight" size={14} />
+                </a>
               </div>
-            ))}
+            </div>
+
+            {/* Домик 2 — с галереей */}
+            <div className="rounded-xl overflow-hidden shadow-md bg-[#FBF5E8]">
+              <Cottage2Gallery />
+              <div className="p-5">
+                <h3 className="font-serif text-xl text-[#7B3320] mb-2">Домик 2</h3>
+                <p className="text-sm text-[#8C7E6E] mb-4 leading-relaxed">Просторный коттедж с зоной барбекю и выходом на природу. Идеален для семей и компаний до 6 человек.</p>
+                <a href="#booking" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-white text-sm font-medium transition hover:opacity-90"
+                  style={{ background: "#C17A2C" }}>
+                  Забронировать
+                  <Icon name="ArrowRight" size={14} />
+                </a>
+              </div>
+            </div>
+
+            {/* Домик 3 */}
+            <div className="rounded-xl overflow-hidden shadow-md bg-[#FBF5E8]">
+              <img src={HERO_IMG} alt="Домик 3" className="w-full h-52 object-cover" />
+              <div className="p-5">
+                <h3 className="font-serif text-xl text-[#7B3320] mb-2">Домик 3</h3>
+                <p className="text-sm text-[#8C7E6E] mb-4 leading-relaxed">Уютный домик с панорамными окнами и открытой верандой. Отличный выбор для романтического отдыха.</p>
+                <a href="#booking" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-white text-sm font-medium transition hover:opacity-90"
+                  style={{ background: "#C17A2C" }}>
+                  Забронировать
+                  <Icon name="ArrowRight" size={14} />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Цены */}
