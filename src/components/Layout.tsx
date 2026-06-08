@@ -47,12 +47,11 @@ function PromoPopup({ onClose }: { onClose: () => void }) {
             </button>
           </div>
 
-          <a href="tel:+79128052242" onClick={onClose}
+          <Link to="/contacts" onClick={onClose}
             className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-white font-medium transition hover:opacity-90"
             style={{ background: "#C17A2C" }}>
-            <Icon name="Phone" size={15} style={{ color: "#fff" }} />
-            Позвонить и забронировать
-          </a>
+            Забронировать
+          </Link>
           <button onClick={onClose} className="mt-3 text-xs text-[#8C7E6E] hover:text-[#7B3320] transition">
             Закрыть
           </button>
