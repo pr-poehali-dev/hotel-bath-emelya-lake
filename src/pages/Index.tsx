@@ -276,25 +276,26 @@ export default function Index() {
           </div>
 
           {/* Фото — мозаика */}
-          <div className="grid grid-cols-3 grid-rows-2 gap-3 mb-16" style={{ height: 480 }}>
-            {/* Большое фото слева */}
-            <div className="col-span-2 row-span-2 overflow-hidden rounded-2xl shadow-lg">
+          <div className="grid grid-cols-3 grid-rows-2 gap-3 mb-16" style={{ height: 500 }}>
+            {/* Большое фото слева — фасад с вывеской */}
+            <div className="col-span-1 row-span-2 overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/a57116e0-c395-42a3-8468-b8c55591b8ca.jpg"
                 alt="Трактир Емеля" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
-            {/* Три маленьких справа */}
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <img
-                src="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/f3ba18fe-6d6f-4d6e-b3fc-b36dcd098b0e.jpg"
-                alt="Интерьер трактира" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
+            {/* Летняя веранда под берёзами — большое сверху справа */}
+            <div className="col-span-2 overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/d893cb4e-ee87-47cf-bdbc-96d12123c518.jpg"
                 alt="Летняя веранда" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            {/* Интерьер — снизу справа */}
+            <div className="col-span-2 overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/f3ba18fe-6d6f-4d6e-b3fc-b36dcd098b0e.jpg"
+                alt="Интерьер трактира" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
