@@ -10,13 +10,14 @@ const NAV_LINKS = [
   { label: "Контакты", href: "/contacts" },
 ];
 
-const PROMO_DELAY = 3 * 60 * 1000; // 3 минуты
+const PROMO_DELAY_1 = 15 * 1000;       // 15 секунд
+const PROMO_DELAY_2 = 4 * 60 * 1000;  // ещё 4 минуты после закрытия
 
 function PromoPopup({ onClose }: { onClose: () => void }) {
   const [copied, setCopied] = useState(false);
 
   const copy = () => {
-    navigator.clipboard.writeText("ЕМЕЛЯДАРИТ26");
+    navigator.clipboard.writeText("DARIM15");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -40,7 +41,7 @@ function PromoPopup({ onClose }: { onClose: () => void }) {
 
           {/* Промокод */}
           <div className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl mb-5 border-2 border-dashed" style={{ borderColor: "#C17A2C", background: "#fff" }}>
-            <span className="font-mono font-bold text-lg tracking-widest text-[#7B3320]">ЕМЕЛЯДАРИТ26</span>
+            <span className="font-mono font-bold text-lg tracking-widest text-[#7B3320]">DARIM15</span>
             <button onClick={copy} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white text-xs font-medium transition hover:opacity-90 shrink-0" style={{ background: "#C17A2C" }}>
               <Icon name={copied ? "Check" : "Copy"} size={13} style={{ color: "#fff" }} />
               {copied ? "Скопировано!" : "Скопировать"}
@@ -65,6 +66,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showPromo, setShowPromo] = useState(false);
+  const promoCountRef = useState(() => parseInt(sessionStorage.getItem("promo_count") || "0"))[0];
   const location = useLocation();
 
   useEffect(() => {
@@ -74,14 +76,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    const shown = sessionStorage.getItem("promo_shown");
-    if (shown) return;
+    const count = parseInt(sessionStorage.getItem("promo_count") || "0");
+    if (count >= 2) return;
+    const delay = count === 0 ? PROMO_DELAY_1 : PROMO_DELAY_2;
     const timer = setTimeout(() => {
       setShowPromo(true);
-      sessionStorage.setItem("promo_shown", "1");
-    }, PROMO_DELAY);
+    }, delay);
     return () => clearTimeout(timer);
-  }, []);
+  }, [promoCountRef]);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -126,7 +128,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
       <div style={{ paddingTop: 56 }}>{children}</div>
-      {showPromo && <PromoPopup onClose={() => setShowPromo(false)} />}
+      {showPromo && <PromoPopup onClose={() => {
+        const count = parseInt(sessionStorage.getItem("promo_count") || "0");
+        const next = count + 1;
+        sessionStorage.setItem("promo_count", String(next));
+        setShowPromo(false);
+        if (next < 2) {
+          setTimeout(() => setShowPromo(true), PROMO_DELAY_2);
+        }
+      }} />}
       <footer className="py-8 px-4 text-center text-sm text-[#8C7E6E]" style={{ background: "#3D2212", color: "#C9A97A" }}>
         <p className="font-serif text-lg text-[#E8C98A] mb-1">Емеля</p>
         <p>Гостевой комплекс Емеля · Башкирия, озеро Банное</p>
