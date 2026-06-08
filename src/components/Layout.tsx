@@ -10,15 +10,78 @@ const NAV_LINKS = [
   { label: "Контакты", href: "/contacts" },
 ];
 
+const PROMO_DELAY = 3 * 60 * 1000; // 3 минуты
+
+function PromoPopup({ onClose }: { onClose: () => void }) {
+  const [copied, setCopied] = useState(false);
+
+  const copy = () => {
+    navigator.clipboard.writeText("ЕМЕЛЯДАРИТ26");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)" }}>
+      <div className="relative bg-[#FBF5E8] rounded-2xl shadow-2xl max-w-sm w-full overflow-hidden">
+        {/* Декоративная полоса сверху */}
+        <div className="h-2 w-full" style={{ background: "#C17A2C" }} />
+
+        <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#C17A2C]/10 transition">
+          <Icon name="X" size={18} style={{ color: "#7B3320" }} />
+        </button>
+
+        <div className="p-7 pt-5 text-center">
+          <div className="text-4xl mb-3">🎁</div>
+          <h2 className="font-serif text-2xl text-[#7B3320] mb-2">У нас бронировать дешевле!</h2>
+          <p className="text-sm text-[#8C7E6E] leading-relaxed mb-5">
+            Бронируйте напрямую и получите <strong className="text-[#7B3320]">скидку 15%</strong> — просто назовите промокод при звонке или укажите его в заявке.
+          </p>
+
+          {/* Промокод */}
+          <div className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl mb-5 border-2 border-dashed" style={{ borderColor: "#C17A2C", background: "#fff" }}>
+            <span className="font-mono font-bold text-lg tracking-widest text-[#7B3320]">ЕМЕЛЯДАРИТ26</span>
+            <button onClick={copy} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white text-xs font-medium transition hover:opacity-90 shrink-0" style={{ background: "#C17A2C" }}>
+              <Icon name={copied ? "Check" : "Copy"} size={13} style={{ color: "#fff" }} />
+              {copied ? "Скопировано!" : "Скопировать"}
+            </button>
+          </div>
+
+          <a href="tel:+79128052242" onClick={onClose}
+            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-white font-medium transition hover:opacity-90"
+            style={{ background: "#C17A2C" }}>
+            <Icon name="Phone" size={15} style={{ color: "#fff" }} />
+            Позвонить и забронировать
+          </a>
+          <button onClick={onClose} className="mt-3 text-xs text-[#8C7E6E] hover:text-[#7B3320] transition">
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showPromo, setShowPromo] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  useEffect(() => {
+    const shown = sessionStorage.getItem("promo_shown");
+    if (shown) return;
+    const timer = setTimeout(() => {
+      setShowPromo(true);
+      sessionStorage.setItem("promo_shown", "1");
+    }, PROMO_DELAY);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -64,6 +127,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
       <div style={{ paddingTop: 56 }}>{children}</div>
+      {showPromo && <PromoPopup onClose={() => setShowPromo(false)} />}
       <footer className="py-8 px-4 text-center text-sm text-[#8C7E6E]" style={{ background: "#3D2212", color: "#C9A97A" }}>
         <p className="font-serif text-lg text-[#E8C98A] mb-1">Емеля</p>
         <p>Гостевой комплекс Емеля · Башкирия, озеро Банное</p>
