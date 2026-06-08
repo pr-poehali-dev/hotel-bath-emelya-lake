@@ -265,15 +265,287 @@ export default function Index() {
 
       {/* Трактир */}
       <section id="traktir" className="py-20 px-4 bg-[#FBF5E8]">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <img src={SAUNA_IMG} alt="Трактир" className="w-full h-72 object-cover rounded-lg shadow-lg" />
-          <div>
-            <h2 className="font-serif text-4xl text-[#7B3320] mb-4">Трактир</h2>
-            <p className="text-[#8C7E6E] leading-relaxed">
-              Уютный трактир с домашней русской кухней. Свежие фермерские продукты,
-              фирменные блюда и приятная атмосфера.
+        <div className="max-w-6xl mx-auto">
+
+          {/* Заголовок */}
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-4xl text-[#7B3320] mb-3">Трактир «Емеля»</h2>
+            <p className="text-[#8C7E6E] max-w-xl mx-auto leading-relaxed">
+              Уютный трактир с домашней русской кухней. Свежие фермерские продукты, собственные рецепты и летняя веранда под берёзами.
             </p>
           </div>
+
+          {/* Фото галерея */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
+            {[
+              "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/a57116e0-c395-42a3-8468-b8c55591b8ca.jpg",
+              "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/d893cb4e-ee87-47cf-bdbc-96d12123c518.jpg",
+              "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/479b7396-0609-4842-a64a-fadfcc27c23a.jpg",
+              "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/f3ba18fe-6d6f-4d6e-b3fc-b36dcd098b0e.jpg",
+            ].map((src, i) => (
+              <img key={i} src={src} alt={`Трактир ${i+1}`} className="w-full h-48 object-cover rounded-lg shadow-md" />
+            ))}
+          </div>
+
+          {/* Меню */}
+          <h3 className="font-serif text-3xl text-[#7B3320] text-center mb-10">Меню</h3>
+
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {/* Завтраки */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h4 className="font-serif text-xl text-[#7B3320] mb-4 pb-2 border-b border-[#C17A2C]/20">Завтраки</h4>
+              {[
+                { name: "Молочная каша", w: "250 гр", price: "230 р" },
+                { name: "Тыковник", w: "250 гр", price: "280 р" },
+                { name: "Сырники", w: "120 гр", price: "300 р" },
+                { name: "Яичница глазунья (из 2-х яиц)", w: "", price: "120 р" },
+                { name: "Яичница с ветчиной (из 2-х яиц)", w: "", price: "180 р" },
+                { name: "Сосиски с зел. горошком", w: "100/50 гр", price: "180 р" },
+                { name: "Омлет (из 2-х яиц)", w: "", price: "160 р" },
+              ].map(i => (
+                <div key={i.name} className="flex justify-between items-baseline py-1.5 border-b border-[#C17A2C]/10">
+                  <span className="text-sm text-[#3D2212]">{i.name} {i.w && <span className="text-[#8C7E6E] text-xs">{i.w}</span>}</span>
+                  <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Блины */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h4 className="font-serif text-xl text-[#7B3320] mb-4 pb-2 border-b border-[#C17A2C]/20">Блины</h4>
+              {[
+                { name: "Блины с курицей и грибами", w: "200 гр", price: "300 р" },
+                { name: "Блины с ветчиной и сыром", w: "200 гр", price: "300 р" },
+                { name: "Блины с мясом (свинина, говядина)", w: "200 гр", price: "300 р" },
+                { name: "Блины со сметаной", w: "165 гр", price: "160 р" },
+                { name: "Блины с маслом", w: "120 гр", price: "130 р" },
+                { name: "Блины с сёмгой", w: "175 гр", price: "350 р" },
+                { name: "Блины с творогом", w: "180 гр", price: "230 р" },
+                { name: "Блины со сгущёнкой", w: "165 гр", price: "190 р" },
+                { name: "Блины с варёнкой", w: "165 гр", price: "190 р" },
+                { name: "Блины с мёдом", w: "150 гр", price: "190 р" },
+                { name: "Блины с шоколадом", w: "165 гр", price: "190 р" },
+                { name: "Блины с вареньем", w: "165 гр", price: "190 р" },
+              ].map(i => (
+                <div key={i.name} className="flex justify-between items-baseline py-1.5 border-b border-[#C17A2C]/10">
+                  <span className="text-sm text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs">{i.w}</span></span>
+                  <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Салаты */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h4 className="font-serif text-xl text-[#7B3320] mb-4 pb-2 border-b border-[#C17A2C]/20">Салаты</h4>
+              {[
+                { name: "Деревенский", desc: "Свежие огурцы, помидоры и зелень", w: "200 гр", price: "280 р" },
+                { name: "Салат из свежей капусты", desc: "С зелёным горошком", w: "170 гр", price: "230 р" },
+                { name: "Салат «Оливье»", desc: "Классический с куриной грудкой", w: "200 гр", price: "300 р" },
+                { name: "Винегрет", desc: "", w: "200 гр", price: "250 р" },
+              ].map(i => (
+                <div key={i.name} className="py-1.5 border-b border-[#C17A2C]/10">
+                  <div className="flex justify-between items-baseline">
+                    <span className="text-sm font-medium text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs font-normal">{i.w}</span></span>
+                    <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                  </div>
+                  {i.desc && <p className="text-xs text-[#8C7E6E]">{i.desc}</p>}
+                </div>
+              ))}
+            </div>
+
+            {/* Холодные закуски */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h4 className="font-serif text-xl text-[#7B3320] mb-4 pb-2 border-b border-[#C17A2C]/20">Холодные закуски</h4>
+              {[
+                { name: "Домашний разносол", desc: "Квашеная капуста, солёные огурчики и помидорчики", w: "325 гр", price: "250 р" },
+                { name: "Солёные груздочки", desc: "С лучком и сметаной", w: "100/50/30 гр", price: "380 р" },
+                { name: "Селёдочка", desc: "С картошечкой и лучком", w: "70/100/30 гр", price: "280 р" },
+                { name: "Сальцо домашнее", desc: "С гренками и горчицей", w: "50/40/20 гр", price: "350 р" },
+              ].map(i => (
+                <div key={i.name} className="py-1.5 border-b border-[#C17A2C]/10">
+                  <div className="flex justify-between items-baseline">
+                    <span className="text-sm font-medium text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs font-normal">{i.w}</span></span>
+                    <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                  </div>
+                  {i.desc && <p className="text-xs text-[#8C7E6E]">{i.desc}</p>}
+                </div>
+              ))}
+            </div>
+
+            {/* Супы */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h4 className="font-serif text-xl text-[#7B3320] mb-4 pb-2 border-b border-[#C17A2C]/20">Супы</h4>
+              {[
+                { name: "Солянка", w: "300 гр", price: "320 р" },
+                { name: "Борщ", w: "300 гр", price: "280 р" },
+                { name: "Лапша", w: "300 гр", price: "250 р" },
+                { name: "Уха из сёмги", w: "300 гр", price: "350 р" },
+                { name: "Суп грибной", w: "300 гр", price: "280 р" },
+              ].map(i => (
+                <div key={i.name} className="flex justify-between items-baseline py-1.5 border-b border-[#C17A2C]/10">
+                  <span className="text-sm text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs">{i.w}</span></span>
+                  <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Горячие блюда */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h4 className="font-serif text-xl text-[#7B3320] mb-4 pb-2 border-b border-[#C17A2C]/20">Горячие блюда</h4>
+              {[
+                { name: "Чебуреки из печки", w: "200 гр", price: "350 р" },
+                { name: "Свиная рулька из духовки", w: "400 гр", price: "650 р" },
+                { name: "Голубцы со сметаной", w: "250/30 гр", price: "380 р" },
+                { name: "Жаркое в горшочках", w: "250 гр", price: "400 р" },
+                { name: "Котлета щучья", w: "100 гр", price: "250 р" },
+                { name: "Куриная котлета «Ряба»", w: "100 гр", price: "220 р" },
+                { name: "Пельмени «Домашние»", desc: "Свинина, говядина", w: "200 гр", price: "300 р" },
+                { name: "Пельмени «Восточные»", desc: "Баранина, говядина", w: "200 гр", price: "320 р" },
+                { name: "Пельмени «Емеля»", desc: "С мясом щуки", w: "200 гр", price: "350 р" },
+                { name: "Пельмени «Гуси-лебеди»", desc: "С мясом гуся", w: "200 гр", price: "360 р" },
+                { name: "Пельмени «Нежные»", desc: "Курица, лук, специи", w: "200 гр", price: "280 р" },
+                { name: "Вареники с варёным картофелем", w: "200 гр", price: "200 р" },
+                { name: "Вареники с картофелем и лесными грибами", w: "200 гр", price: "250 р" },
+                { name: "Вареники с картофелем и салом", w: "200 гр", price: "250 р" },
+                { name: "Вареники с капустой", w: "200 гр", price: "200 р" },
+                { name: "Вареники с лесной клубникой", w: "200 гр", price: "450 р" },
+                { name: "Вареники с вишней", w: "200 гр", price: "350 р" },
+              ].map(i => (
+                <div key={i.name} className="py-1.5 border-b border-[#C17A2C]/10">
+                  <div className="flex justify-between items-baseline">
+                    <span className="text-sm font-medium text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs font-normal">{i.w}</span></span>
+                    <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                  </div>
+                  {"desc" in i && (i as {name:string;w:string;price:string;desc:string}).desc && <p className="text-xs text-[#8C7E6E]">{(i as {name:string;w:string;price:string;desc:string}).desc}</p>}
+                </div>
+              ))}
+            </div>
+
+            {/* Гриль */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h4 className="font-serif text-xl text-[#7B3320] mb-4 pb-2 border-b border-[#C17A2C]/20">Гриль</h4>
+              {[
+                { name: "Шашлык из свинины", w: "170 гр", price: "390 р" },
+                { name: "Куриные крылышки гриль", w: "250 гр", price: "380 р" },
+                { name: "Колбаски «Емеля» (свинина+говядина)", w: "250 гр", price: "600 р" },
+                { name: "Колбаски «Емеля» (баранина+курица)", w: "250 гр", price: "650 р" },
+                { name: "Стейк из сёмги", w: "150 гр", price: "690 р" },
+                { name: "«Золотая рыбка» скумбрия на углях", w: "300 гр", price: "500 р" },
+              ].map(i => (
+                <div key={i.name} className="flex justify-between items-baseline py-1.5 border-b border-[#C17A2C]/10">
+                  <span className="text-sm text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs">{i.w}</span></span>
+                  <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Гарниры и соусы */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h4 className="font-serif text-xl text-[#7B3320] mb-4 pb-2 border-b border-[#C17A2C]/20">Гарниры</h4>
+              {[
+                { name: "Картофель по-деревенски", desc: "Обжаренные ломтики со специями", w: "150 гр", price: "280 р" },
+                { name: "Картофель фри", w: "150 гр", price: "280 р" },
+                { name: "Картофель по-русски", desc: "Отварной с жареным луком", w: "200 гр", price: "250 р" },
+                { name: "Овощи гриль", desc: "Перец болгарский, баклажан, кабачок", w: "200 гр", price: "350 р" },
+                { name: "Каша гречневая с лесными грибами", w: "250 гр", price: "230 р" },
+              ].map(i => (
+                <div key={i.name} className="py-1.5 border-b border-[#C17A2C]/10">
+                  <div className="flex justify-between items-baseline">
+                    <span className="text-sm font-medium text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs font-normal">{i.w}</span></span>
+                    <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                  </div>
+                  {"desc" in i && (i as {name:string;w:string;price:string;desc:string}).desc && <p className="text-xs text-[#8C7E6E]">{(i as {name:string;w:string;price:string;desc:string}).desc}</p>}
+                </div>
+              ))}
+              <h4 className="font-serif text-xl text-[#7B3320] mt-6 mb-4 pb-2 border-b border-[#C17A2C]/20">Соусы</h4>
+              {[
+                { name: "Соус «Сацебели»", w: "50 гр", price: "50 р" },
+                { name: "Соус «Огонёк»", w: "50 гр", price: "50 р" },
+                { name: "Горчица", w: "50 гр", price: "50 р" },
+                { name: "Майонез", w: "50 гр", price: "50 р" },
+                { name: "Сметана", w: "50 гр", price: "50 р" },
+              ].map(i => (
+                <div key={i.name} className="flex justify-between items-baseline py-1.5 border-b border-[#C17A2C]/10">
+                  <span className="text-sm text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs">{i.w}</span></span>
+                  <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Напитки */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h4 className="font-serif text-xl text-[#7B3320] mb-4 pb-2 border-b border-[#C17A2C]/20">Горячие напитки</h4>
+              {[
+                { name: "Кофе растворимый чёрный", price: "80 р" },
+                { name: "Кофе натуральный «американо»", price: "200 р" },
+                { name: "Кофе натуральный «капучино»", price: "280 р" },
+                { name: "Чёрный чай", price: "50 р" },
+                { name: "Зелёный чай", price: "50 р" },
+                { name: "Чай Башкирский в чайнике", price: "350 р" },
+                { name: "Чай облепиховый", desc: "Облепиха + мёд + бадьян + корица", price: "390 р" },
+                { name: "Чай имбирный", desc: "Имбирь + мёд + лимон", price: "390 р" },
+                { name: "Чай клюквенный", desc: "Клюква + мёд + апельсин", price: "390 р" },
+              ].map(i => (
+                <div key={i.name} className="py-1.5 border-b border-[#C17A2C]/10">
+                  <div className="flex justify-between items-baseline">
+                    <span className="text-sm text-[#3D2212]">{i.name}</span>
+                    <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                  </div>
+                  {"desc" in i && (i as {name:string;price:string;desc:string}).desc && <p className="text-xs text-[#8C7E6E]">{(i as {name:string;price:string;desc:string}).desc}</p>}
+                </div>
+              ))}
+
+              <h4 className="font-serif text-xl text-[#7B3320] mt-6 mb-4 pb-2 border-b border-[#C17A2C]/20">Напитки от Емели</h4>
+              {[
+                { name: "Медовуха «Емеля»", v: "0,2 л / 0,5 л", price: "80 / 440 р" },
+                { name: "Квас «Емеля»", v: "0,2 л / 1,5 л", price: "60 / 200 р" },
+                { name: "Морс «Емеля»", desc: "Клюква, облепиха, кр. смородина", v: "0,2 л / 1,5 л", price: "70 / 350 р" },
+                { name: "Глинтвейн б/алк", v: "0,2 л", price: "200 р" },
+              ].map(i => (
+                <div key={i.name} className="py-1.5 border-b border-[#C17A2C]/10">
+                  <div className="flex justify-between items-baseline">
+                    <span className="text-sm text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs">{i.v}</span></span>
+                    <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                  </div>
+                  {"desc" in i && (i as {name:string;v:string;price:string;desc:string}).desc && <p className="text-xs text-[#8C7E6E]">{(i as {name:string;v:string;price:string;desc:string}).desc}</p>}
+                </div>
+              ))}
+
+              <h4 className="font-serif text-xl text-[#7B3320] mt-6 mb-4 pb-2 border-b border-[#C17A2C]/20">Пиво</h4>
+              {[
+                { name: "Жигулёвское", v: "0,45 л", price: "120 р" },
+                { name: "Искусство варить", v: "0,45 л", price: "140 р" },
+                { name: "Нефильтрованное", v: "0,45 л", price: "140 р" },
+                { name: "Импортное", v: "0,5 л", price: "250 р" },
+              ].map(i => (
+                <div key={i.name} className="flex justify-between items-baseline py-1.5 border-b border-[#C17A2C]/10">
+                  <span className="text-sm text-[#3D2212]">{i.name} <span className="text-[#8C7E6E] text-xs">{i.v}</span></span>
+                  <span className="text-sm font-semibold text-[#7B3320] ml-3 shrink-0">{i.price}</span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+          {/* Кнопка скачать меню */}
+          <div className="text-center mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/83d73831-7b8b-45be-a266-62652310be2f.jpg"
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium transition hover:opacity-90"
+              style={{ background: "#C17A2C" }}>
+              <Icon name="FileText" size={16} />
+              Меню — страница 1
+            </a>
+            <a href="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/6398683e-8b23-4241-b804-d9767ecde344.png"
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition hover:opacity-90"
+              style={{ background: "transparent", border: "2px solid #C17A2C", color: "#7B3320" }}>
+              <Icon name="FileText" size={16} />
+              Меню — страница 2
+            </a>
+          </div>
+
         </div>
       </section>
 
