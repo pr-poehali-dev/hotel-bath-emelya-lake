@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import Layout from "@/components/Layout";
 
@@ -142,12 +143,11 @@ function HouseModal({ house, onClose }: { house: typeof HOUSES[0]; onClose: () =
               ))}
               <p className="text-xs text-[#8C7E6E] mt-1">Цена указана за весь домик (до 6 чел.)</p>
             </div>
-            <a href="tel:+73517770000"
+            <Link to="/contacts" onClick={onClose}
               className="flex items-center justify-center gap-2 w-full mt-6 px-6 py-4 rounded-xl text-white font-medium transition hover:opacity-90"
               style={{ background: "#C17A2C" }}>
-              <Icon name="Phone" size={16} style={{ color: "#fff" }} />
-              Забронировать по телефону
-            </a>
+              Забронировать
+            </Link>
           </div>
         </div>
       </div>
