@@ -275,16 +275,28 @@ export default function Index() {
             </p>
           </div>
 
-          {/* Фото галерея */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
-            {[
-              "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/a57116e0-c395-42a3-8468-b8c55591b8ca.jpg",
-              "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/d893cb4e-ee87-47cf-bdbc-96d12123c518.jpg",
-              "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/479b7396-0609-4842-a64a-fadfcc27c23a.jpg",
-              "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/f3ba18fe-6d6f-4d6e-b3fc-b36dcd098b0e.jpg",
-            ].map((src, i) => (
-              <img key={i} src={src} alt={`Трактир ${i+1}`} className="w-full h-48 object-cover rounded-lg shadow-md" />
-            ))}
+          {/* Фото — мозаика */}
+          <div className="grid grid-cols-3 grid-rows-2 gap-3 mb-16" style={{ height: 480 }}>
+            {/* Большое фото слева */}
+            <div className="col-span-2 row-span-2 overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/a57116e0-c395-42a3-8468-b8c55591b8ca.jpg"
+                alt="Трактир Емеля" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            {/* Три маленьких справа */}
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/f3ba18fe-6d6f-4d6e-b3fc-b36dcd098b0e.jpg"
+                alt="Интерьер трактира" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/d893cb4e-ee87-47cf-bdbc-96d12123c518.jpg"
+                alt="Летняя веранда" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
           </div>
 
           {/* Меню */}
@@ -528,23 +540,7 @@ export default function Index() {
 
           </div>
 
-          {/* Кнопка скачать меню */}
-          <div className="text-center mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/83d73831-7b8b-45be-a266-62652310be2f.jpg"
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium transition hover:opacity-90"
-              style={{ background: "#C17A2C" }}>
-              <Icon name="FileText" size={16} />
-              Меню — страница 1
-            </a>
-            <a href="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/6398683e-8b23-4241-b804-d9767ecde344.png"
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition hover:opacity-90"
-              style={{ background: "transparent", border: "2px solid #C17A2C", color: "#7B3320" }}>
-              <Icon name="FileText" size={16} />
-              Меню — страница 2
-            </a>
-          </div>
+
 
         </div>
       </section>
