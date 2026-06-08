@@ -13,6 +13,15 @@ const NAV_LINKS = [
   { label: "Контакты", href: "#contacts" },
 ];
 
+const COTTAGE1_PHOTOS = [
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/b0d34819-788a-4a6c-a7cc-18bb7e8ce63a.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/495a58cd-b3b1-4dfd-bbad-e8fca96ae2e9.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/a39c6eda-f39a-41f4-83e3-3ccfd739ec20.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/e7b87657-1056-42ef-b7f6-9520ecd4dce4.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/aba23bd8-6455-459e-98d9-e044d8612401.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/3baf53a5-1c44-49b4-b18d-64bf85f10f09.jpg",
+];
+
 const COTTAGE2_PHOTOS = [
   "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/b2c74da1-4150-4523-bd82-67a78166ab67.jpg",
   "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/1a210674-408c-4caf-97be-a134ebeb33bf.jpg",
@@ -177,7 +186,7 @@ export default function Index() {
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {/* Домик 1 */}
             <div className="rounded-xl overflow-hidden shadow-md bg-[#FBF5E8]">
-              <img src={ROOM_IMG} alt="Домик 1" className="w-full h-52 object-cover" />
+              <CottageGallery photos={COTTAGE1_PHOTOS} name="Домик 1" />
               <div className="p-5">
                 <h3 className="font-serif text-xl text-[#7B3320] mb-2">Домик 1</h3>
                 <p className="text-sm text-[#8C7E6E] mb-4 leading-relaxed">Уютный трёхкомнатный коттедж с видом на лес. Всё необходимое для комфортного отдыха до 6 человек.</p>
