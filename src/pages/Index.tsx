@@ -25,14 +25,29 @@ const COTTAGE2_PHOTOS = [
   "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/64b22f52-cb4f-4449-a02a-a32b1acacb6a.jpg",
 ];
 
-function Cottage2Gallery() {
+const COTTAGE3_PHOTOS = [
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/cd89e43c-26c8-40ce-bc83-d43304b6480e.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/41104ea8-3ffa-430c-a19b-cc00eea6d615.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/7ecc8db9-348c-435d-86a9-933915d2ec11.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/e3d73532-a8a8-41ec-849d-ea57c000ce35.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/b43b0d45-39a9-48c5-8d17-9190b19fee07.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/fc38c8a5-d56c-4305-b217-f1733b37fa25.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/d2215e33-5f82-4f96-9e28-91d2a78b7050.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/79981fe5-f5cf-4d81-8d24-ee830e968452.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/90458c06-e1f9-4ccc-9f0e-0de42b8e6a6a.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/7fc3cc54-3f7f-4a19-b308-6b2e1b3e8ec2.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/d0979888-3ff8-4264-9234-cc5f4dc348a6.jpg",
+  "https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/6d948db4-4fa9-4acd-b869-923c21e85228.jpg",
+];
+
+function CottageGallery({ photos, name }: { photos: string[]; name: string }) {
   const [current, setCurrent] = useState(0);
-  const total = COTTAGE2_PHOTOS.length;
+  const total = photos.length;
   return (
     <div className="relative w-full h-52 bg-black overflow-hidden">
       <img
-        src={COTTAGE2_PHOTOS[current]}
-        alt={`Домик 2 — фото ${current + 1}`}
+        src={photos[current]}
+        alt={`${name} — фото ${current + 1}`}
         className="w-full h-full object-cover transition-opacity duration-300"
       />
       <button
@@ -50,7 +65,7 @@ function Cottage2Gallery() {
         <Icon name="ChevronRight" size={18} style={{ color: "#fff" }} />
       </button>
       <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1">
-        {COTTAGE2_PHOTOS.map((_, i) => (
+        {photos.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
@@ -64,6 +79,10 @@ function Cottage2Gallery() {
       </div>
     </div>
   );
+}
+
+function Cottage2Gallery() {
+  return <CottageGallery photos={COTTAGE2_PHOTOS} name="Домик 2" />;
 }
 
 export default function Index() {
@@ -186,7 +205,7 @@ export default function Index() {
 
             {/* Домик 3 */}
             <div className="rounded-xl overflow-hidden shadow-md bg-[#FBF5E8]">
-              <img src={HERO_IMG} alt="Домик 3" className="w-full h-52 object-cover" />
+              <CottageGallery photos={COTTAGE3_PHOTOS} name="Домик 3" />
               <div className="p-5">
                 <h3 className="font-serif text-xl text-[#7B3320] mb-2">Домик 3</h3>
                 <p className="text-sm text-[#8C7E6E] mb-4 leading-relaxed">Уютный домик с панорамными окнами и открытой верандой. Отличный выбор для романтического отдыха.</p>
