@@ -207,8 +207,8 @@ export default function Baths() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-serif text-lg text-[#7B3320]">от {bath.prices.weekday}</p>
-                    <p className="text-xs text-[#8C7E6E]">{bath.prices.note}</p>
+                    <p className="font-serif text-lg text-[#7B3320]">от {bath.prices.weekday[0].price}</p>
+                    <p className="text-xs text-[#8C7E6E]">Минимум 2 часа</p>
                   </div>
                   <button className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-white text-sm font-medium transition hover:opacity-90"
                     style={{ background: "#C17A2C" }}>

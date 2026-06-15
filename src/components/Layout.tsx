@@ -17,7 +17,7 @@ function PromoPopup({ onClose }: { onClose: () => void }) {
   const [copied, setCopied] = useState(false);
 
   const copy = () => {
-    navigator.clipboard.writeText("DARIM15");
+    navigator.clipboard.writeText("DARIM10");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -36,12 +36,12 @@ function PromoPopup({ onClose }: { onClose: () => void }) {
           <div className="text-4xl mb-3">🎁</div>
           <h2 className="font-serif text-2xl text-[#7B3320] mb-2">У нас бронировать дешевле!</h2>
           <p className="text-sm text-[#8C7E6E] leading-relaxed mb-5">
-            Бронируйте напрямую и получите <strong className="text-[#7B3320]">скидку 15%</strong> — просто назовите промокод при звонке или укажите его в заявке.
+            Бронируйте напрямую и получите <strong className="text-[#7B3320]">скидку 10%</strong> — просто назовите промокод при звонке или укажите его в заявке.
           </p>
 
           {/* Промокод */}
           <div className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl mb-5 border-2 border-dashed" style={{ borderColor: "#C17A2C", background: "#fff" }}>
-            <span className="font-mono font-bold text-lg tracking-widest text-[#7B3320]">DARIM15</span>
+            <span className="font-mono font-bold text-lg tracking-widest text-[#7B3320]">DARIM10</span>
             <button onClick={copy} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white text-xs font-medium transition hover:opacity-90 shrink-0" style={{ background: "#C17A2C" }}>
               <Icon name={copied ? "Check" : "Copy"} size={13} style={{ color: "#fff" }} />
               {copied ? "Скопировано!" : "Скопировать"}
