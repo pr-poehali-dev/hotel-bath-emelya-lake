@@ -1,5 +1,6 @@
 import Icon from "@/components/ui/icon";
 import Layout from "@/components/Layout";
+import BookingWidget from "@/components/BookingWidget";
 
 export default function Contacts() {
   return (
@@ -59,33 +60,10 @@ export default function Contacts() {
             </div>
           </div>
 
-          {/* Форма бронирования */}
+          {/* Модуль бронирования */}
           <div className="bg-[#FBF5E8] rounded-2xl p-8 shadow-sm">
             <h2 className="font-serif text-2xl text-[#7B3320] mb-6">Забронировать</h2>
-            <form className="space-y-4" onSubmit={e => { e.preventDefault(); alert("Спасибо! Мы свяжемся с вами."); }}>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs mb-1 uppercase tracking-wider text-[#C17A2C]">Заезд</label>
-                  <input type="date" required className="w-full px-3 py-3 rounded-lg text-sm outline-none bg-white border border-[#C17A2C]/30 text-[#3D2212]" />
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 uppercase tracking-wider text-[#C17A2C]">Выезд</label>
-                  <input type="date" required className="w-full px-3 py-3 rounded-lg text-sm outline-none bg-white border border-[#C17A2C]/30 text-[#3D2212]" />
-                </div>
-              </div>
-              <div>
-                <label className="block text-xs mb-1 uppercase tracking-wider text-[#C17A2C]">Имя</label>
-                <input type="text" required placeholder="Иван" className="w-full px-3 py-3 rounded-lg text-sm outline-none bg-white border border-[#C17A2C]/30 text-[#3D2212]" />
-              </div>
-              <div>
-                <label className="block text-xs mb-1 uppercase tracking-wider text-[#C17A2C]">Телефон</label>
-                <input type="tel" required placeholder="+7 (912) ..." className="w-full px-3 py-3 rounded-lg text-sm outline-none bg-white border border-[#C17A2C]/30 text-[#3D2212]" />
-              </div>
-              <button type="submit" className="w-full py-4 rounded-lg font-semibold text-white transition hover:opacity-90"
-                style={{ background: "#C17A2C" }}>
-                Отправить заявку
-              </button>
-            </form>
+            <BookingWidget />
           </div>
         </div>
 
