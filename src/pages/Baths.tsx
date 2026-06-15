@@ -38,7 +38,10 @@ const BATHS = [
     shortDesc: "Настоящий русский пар и прохладный бассейн для полного расслабления.",
     description: "Просторная рубленая баня на дровах с большим чистым бассейном. Разогрейтесь до отказа в парной с берёзовым веником, а затем нырните в прохладную воду — это лучший способ восстановить силы после долгой дороги. Идеально для компании от 2 до 8 человек.",
     features: ["Дровяная печь", "Бассейн с чистой водой", "Купель с холодной водой", "Предбанник с зоной отдыха", "Веники в подарок", "Полотенца и халаты"],
-    prices: { weekday: "3 000 р/час", weekend: "3 500 р/час", note: "Минимум 2 часа" },
+    prices: {
+      weekend: [{ time: "06:00–12:00", price: "2 000 р/час" }, { time: "12:00–18:00", price: "2 800 р/час" }, { time: "18:00–06:00", price: "3 200 р/час" }],
+      weekday: [{ time: "06:00–12:00", price: "1 600 р/час" }, { time: "12:00–18:00", price: "2 400 р/час" }, { time: "18:00–06:00", price: "2 800 р/час" }],
+    },
   },
   {
     id: 2,
@@ -48,7 +51,10 @@ const BATHS = [
     shortDesc: "Большой деревянный чан под открытым небом — особенная атмосфера.",
     description: "Уникальная баня с большим дубовым чаном, установленным прямо под открытым небом среди леса. Горячая вода в чане нагревается на дровах и пропитывается ароматами трав. Лежать в чане и смотреть на звёздное небо Башкирии — незабываемое ощущение.",
     features: ["Дровяная печь", "Большой дубовый чан", "Парная с берёзовым веником", "Открытая площадка", "Ароматные травяные сборы", "Полотенца и халаты"],
-    prices: { weekday: "3 000 р/час", weekend: "3 500 р/час", note: "Минимум 2 часа" },
+    prices: {
+      weekend: [{ time: "06:00–12:00", price: "2 200 р/час" }, { time: "12:00–18:00", price: "3 000 р/час" }, { time: "18:00–06:00", price: "3 500 р/час" }],
+      weekday: [{ time: "06:00–12:00", price: "1 800 р/час" }, { time: "12:00–18:00", price: "2 600 р/час" }, { time: "18:00–06:00", price: "3 000 р/час" }],
+    },
   },
   {
     id: 3,
@@ -58,7 +64,10 @@ const BATHS = [
     shortDesc: "Традиционные контрастные процедуры с большим обливным ведром.",
     description: "Классическая русская баня с фирменным обливным ведром — мощный выброс холодной воды после жаркой парной. Это лучший способ укрепить иммунитет, взбодриться и получить заряд энергии на несколько дней вперёд. Идеально для тех, кто ценит традиционные банные ритуалы.",
     features: ["Дровяная печь", "Обливное ведро", "Парная с высоким жаром", "Предбанник с зоной отдыха", "Веники на выбор", "Полотенца и халаты"],
-    prices: { weekday: "3 000 р/час", weekend: "3 500 р/час", note: "Минимум 2 часа" },
+    prices: {
+      weekend: [{ time: "06:00–12:00", price: "1 500 р/час" }, { time: "12:00–18:00", price: "2 300 р/час" }, { time: "18:00–06:00", price: "2 600 р/час" }],
+      weekday: [{ time: "06:00–12:00", price: "1 000 р/час" }, { time: "12:00–18:00", price: "1 900 р/час" }, { time: "18:00–06:00", price: "2 200 р/час" }],
+    },
   },
 ];
 
@@ -127,17 +136,23 @@ function BathModal({ bath, onClose }: { bath: typeof BATHS[0]; onClose: () => vo
           </div>
           <div>
             <h3 className="font-serif text-xl text-[#7B3320] mb-3">Стоимость</h3>
-            <div className="space-y-3">
-              {[
-                { label: "Будние дни (пн–пт)", price: bath.prices.weekday },
-                { label: "Выходные (сб–вс)", price: bath.prices.weekend },
-              ].map(p => (
-                <div key={p.label} className="flex justify-between items-center p-4 rounded-xl bg-white shadow-sm">
-                  <span className="text-sm text-[#8C7E6E]">{p.label}</span>
-                  <span className="font-serif text-xl text-[#7B3320]">{p.price}</span>
+            <div className="space-y-4">
+              {([
+                { label: "Выходные (сб–вс)", slots: bath.prices.weekend },
+                { label: "Будние дни (пн–пт)", slots: bath.prices.weekday },
+              ] as { label: string; slots: { time: string; price: string }[] }[]).map(period => (
+                <div key={period.label}>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#C17A2C] mb-2">{period.label}</p>
+                  <div className="space-y-1.5">
+                    {period.slots.map(s => (
+                      <div key={s.time} className="flex justify-between items-center px-4 py-2.5 rounded-xl bg-white shadow-sm">
+                        <span className="text-sm text-[#8C7E6E]">{s.time}</span>
+                        <span className="font-serif text-lg text-[#7B3320]">{s.price}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
-              <p className="text-xs text-[#8C7E6E]">{bath.prices.note}</p>
             </div>
             <a href="tel:+79048082512"
               className="flex items-center justify-center gap-2 w-full mt-6 px-6 py-4 rounded-xl text-white font-medium transition hover:opacity-90"
