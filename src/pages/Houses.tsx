@@ -31,7 +31,7 @@ const COTTAGE3_PHOTOS = [
 const HOUSES = [
   {
     id: 2,
-    title: "Домик 2",
+    title: "Гостевой дом Стандарт",
     subtitle: "Баня с обливным ведром",
     photos: COTTAGE2_PHOTOS,
     capacity: "до 6 человек",
@@ -42,7 +42,7 @@ const HOUSES = [
   },
   {
     id: 3,
-    title: "Домик 3",
+    title: "Гостевой дом Комфорт",
     subtitle: "Баня с чаном",
     photos: COTTAGE3_PHOTOS,
     capacity: "до 6 человек",

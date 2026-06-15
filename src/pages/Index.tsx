@@ -91,7 +91,7 @@ function CottageGallery({ photos, name }: { photos: string[]; name: string }) {
 }
 
 function Cottage2Gallery() {
-  return <CottageGallery photos={COTTAGE2_PHOTOS} name="Домик 2" />;
+  return <CottageGallery photos={COTTAGE2_PHOTOS} name="Гостевой дом Стандарт" />;
 }
 
 export default function Index() {
@@ -207,7 +207,7 @@ export default function Index() {
             <div className="rounded-xl overflow-hidden shadow-md bg-[#FBF5E8]">
               <Cottage2Gallery />
               <div className="p-5">
-                <h3 className="font-serif text-xl text-[#7B3320] mb-2">Домик 2</h3>
+                <h3 className="font-serif text-xl text-[#7B3320] mb-2">Гостевой дом Стандарт</h3>
                 <p className="text-sm text-[#8C7E6E] mb-3 leading-relaxed">Просторный двухэтажный сруб с баней, открытой мангальной зоной и уютной верандой. На первом этаже — гостиная с кожаным диваном и кухня, на втором — две спальни.</p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {["Баня", "Мангал", "2 спальни", "Кухня", "Веранда", "До 6 человек"].map(tag => (
@@ -224,9 +224,9 @@ export default function Index() {
 
             {/* Домик 3 */}
             <div className="rounded-xl overflow-hidden shadow-md bg-[#FBF5E8]">
-              <CottageGallery photos={COTTAGE3_PHOTOS} name="Домик 3" />
+              <CottageGallery photos={COTTAGE3_PHOTOS} name="Гостевой дом Комфорт" />
               <div className="p-5">
-                <h3 className="font-serif text-xl text-[#7B3320] mb-2">Домик 3</h3>
+                <h3 className="font-serif text-xl text-[#7B3320] mb-2">Гостевой дом Комфорт</h3>
                 <p className="text-sm text-[#8C7E6E] mb-3 leading-relaxed">Стильный двухэтажный коттедж в зелёных тонах с баней, купелью и крытой беседкой. Две уютные спальни, гостиная с бирюзовым диваном и кухня с антикварным буфетом.</p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {["Баня", "Купель", "Беседка", "2 спальни", "Кухня", "До 6 человек"].map(tag => (
