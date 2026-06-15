@@ -9,6 +9,7 @@ import Baths from "./pages/Baths";
 import Traktir from "./pages/Traktir";
 import Contacts from "./pages/Contacts";
 import NotFound from "./pages/NotFound";
+import PageTransition from "./components/PageTransition";
 
 const queryClient = new QueryClient();
 
@@ -18,15 +19,17 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/houses" element={<Houses />} />
-          <Route path="/baths" element={<Baths />} />
-          <Route path="/traktir" element={<Traktir />} />
-          <Route path="/contacts" element={<Contacts />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <PageTransition>
+          <Routes>
+            <Route path="/" element={<About />} />
+            <Route path="/houses" element={<Houses />} />
+            <Route path="/baths" element={<Baths />} />
+            <Route path="/traktir" element={<Traktir />} />
+            <Route path="/contacts" element={<Contacts />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </PageTransition>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
