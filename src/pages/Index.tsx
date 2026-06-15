@@ -584,7 +584,6 @@ export default function Index() {
           <div>
             <h3 className="font-serif text-3xl mb-6" style={{ color: "#C17A2C" }}>Есть вопросы?<br />Свяжитесь с нами</h3>
             <div className="space-y-2">
-              <a href="tel:+79128052242" className="block text-lg hover:underline" style={{ color: "#C17A2C" }}>+7 (912) 805-22-42</a>
               <a href="tel:+79048082512" className="block text-lg hover:underline" style={{ color: "#C17A2C" }}>+7 (904) 808-25-12</a>
               <a href="mailto:reception@nabannom.ru" className="block text-base hover:underline" style={{ color: "#C17A2C" }}>reception@nabannom.ru</a>
               <p className="text-sm mt-4" style={{ color: "rgba(255,255,255,0.45)" }}>

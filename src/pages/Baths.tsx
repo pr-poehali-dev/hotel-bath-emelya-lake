@@ -139,7 +139,7 @@ function BathModal({ bath, onClose }: { bath: typeof BATHS[0]; onClose: () => vo
               ))}
               <p className="text-xs text-[#8C7E6E]">{bath.prices.note}</p>
             </div>
-            <a href="tel:+79128052242"
+            <a href="tel:+79048082512"
               className="flex items-center justify-center gap-2 w-full mt-6 px-6 py-4 rounded-xl text-white font-medium transition hover:opacity-90"
               style={{ background: "#C17A2C" }}>
               <Icon name="Phone" size={16} style={{ color: "#fff" }} />

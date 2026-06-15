@@ -21,17 +21,8 @@ export default function Contacts() {
           <div className="bg-[#FBF5E8] rounded-2xl p-8 shadow-sm">
             <h2 className="font-serif text-2xl text-[#7B3320] mb-6">Как связаться</h2>
             <div className="space-y-5">
-              <a href="tel:+79128052242" className="flex items-center gap-4 group">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition group-hover:opacity-90" style={{ background: "#C17A2C" }}>
-                  <Icon name="Phone" size={18} style={{ color: "#fff" }} />
-                </div>
-                <div>
-                  <p className="text-xs text-[#8C7E6E] mb-0.5">Телефон</p>
-                  <p className="text-[#3D2212] font-medium group-hover:text-[#C17A2C] transition">+7 (912) 805-22-42</p>
-                </div>
-              </a>
               <a href="tel:+79048082512" className="flex items-center gap-4 group">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: "#C17A2C" }}>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition group-hover:opacity-90" style={{ background: "#C17A2C" }}>
                   <Icon name="Phone" size={18} style={{ color: "#fff" }} />
                 </div>
                 <div>

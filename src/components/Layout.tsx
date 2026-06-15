@@ -140,7 +140,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <footer className="py-8 px-4 text-center text-sm text-[#8C7E6E]" style={{ background: "#3D2212", color: "#C9A97A" }}>
         <p className="font-serif text-lg text-[#E8C98A] mb-1">Емеля</p>
         <p>Гостевой комплекс Емеля · Башкирия, озеро Банное</p>
-        <p className="mt-1">+7 (351) 777-00-00</p>
+        <p className="mt-1">+7 (904) 808-25-12</p>
       </footer>
     </div>
   );
