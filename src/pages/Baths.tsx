@@ -76,7 +76,7 @@ function Gallery({ photos, name }: { photos: string[]; name: string }) {
   const total = photos.length;
   return (
     <div className="relative w-full h-full bg-black overflow-hidden">
-      <img src={photos[current]} alt={`${name} — фото ${current + 1}`} className="w-full h-full object-cover transition-opacity duration-300" />
+      <img src={photos[current]} alt={`${name} — фото ${current + 1}`} className="w-full h-full object-contain transition-opacity duration-300" />
       <button onClick={() => setCurrent((current - 1 + total) % total)}
         className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center opacity-80 hover:opacity-100 transition"
         style={{ background: "rgba(0,0,0,0.5)" }}>
