@@ -38,7 +38,7 @@ export default function About() {
             </p>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: "Home", label: "2 гостевых дома" },
+                { icon: "Home", label: "Гостевые дома" },
                 { icon: "Waves", label: "На берегу озера" },
                 { icon: "Flame", label: "Собственные бани" },
                 { icon: "UtensilsCrossed", label: "Трактир «Емеля»" },
@@ -66,7 +66,7 @@ export default function About() {
           <h2 className="font-serif text-3xl text-[#7B3320] text-center mb-10">Что у нас есть</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { to: "/houses", icon: "Home", title: "Гостевые дома", desc: "2 уютных гостевых дома с удобствами на берегу озера. Вместимость — до 6 человек." },
+              { to: "/houses", icon: "Home", title: "Гостевые дома", desc: "Уютные гостевые дома с удобствами на берегу озера. Вместимость — до 6 человек." },
               { to: "/baths", icon: "Flame", title: "Бани", desc: "Баня с бассейном, баня с чаном и баня с обливным ведром — выбирайте под настроение." },
               { to: "/traktir", icon: "UtensilsCrossed", title: "Трактир", desc: "Домашняя русская кухня, фирменные пельмени, блины, шашлыки и напитки от Емели." },
             ].map(c => (
