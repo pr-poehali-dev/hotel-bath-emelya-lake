@@ -36,7 +36,7 @@ const HOUSES = [
     photos: COTTAGE2_PHOTOS,
     capacity: "до 6 человек",
     area: "80 м²",
-    prices: { weekday: "6 000 р/сут", weekend: "8 000 р/сут", sunMon: "8 000 р/сут" },
+    prices: { weekday: "6 000 р/сут", weekend: "8 000 р/сут" },
     features: ["2 спальни", "Полностью оборудованная кухня", "Баня с обливным ведром", "Мангал и беседка", "Бесплатный Wi-Fi", "Парковка", "Смена белья"],
     description: "Гостевой дом с собственной русской парной. Уютный двухэтажный домик для отдыха в Башкирии. Внутри вас ждут две уютные спальни, гостиная и кухня с необходимой бытовой техникой и посудой для приготовления пищи. Собственная баня с обливным ведром — идеально для любителей контрастных процедур.",
   },
@@ -47,7 +47,7 @@ const HOUSES = [
     photos: COTTAGE3_PHOTOS,
     capacity: "до 6 человек",
     area: "90 м²",
-    prices: { weekday: "8 000 р/сут", weekend: "10 000 р/сут", sunMon: "10 000 р/сут" },
+    prices: { weekday: "8 000 р/сут", weekend: "10 000 р/сут" },
     features: ["2 спальни", "Полностью оборудованная кухня", "Баня с большим чаном", "Открытая веранда", "Мангал и беседка", "Бесплатный Wi-Fi", "Парковка"],
     description: "Гостевой дом с собственной русской парной. Просторный домик с баней и большим деревянным чаном под открытым небом. Лежать в горячем чане, глядя на звёзды Башкирии — незабываемые ощущения. Уютная терраса, гостиная и кухня с необходимой бытовой техникой и посудой для приготовления пищи.",
   },
@@ -133,8 +133,7 @@ function HouseModal({ house, onClose }: { house: typeof HOUSES[0]; onClose: () =
             <div className="space-y-3">
               {[
                 { label: "Будние дни (пн–чт)", price: house.prices.weekday },
-                { label: "Пятница–суббота", price: house.prices.weekend },
-                { label: "Суббота–воскресенье", price: house.prices.sunMon },
+                { label: "Выходные (пт–вс)", price: house.prices.weekend },
               ].map(p => (
                 <div key={p.label} className="flex justify-between items-center p-4 rounded-xl bg-white shadow-sm">
                   <span className="text-sm text-[#8C7E6E]">{p.label}</span>
@@ -196,7 +195,7 @@ export default function Houses() {
                     <p className="text-[#C17A2C] text-sm mt-0.5">{house.subtitle}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-serif text-xl text-[#7B3320]">от 6 000 р</p>
+                    <p className="font-serif text-xl text-[#7B3320]">от {house.prices.weekday.replace(" р/сут", " р")}</p>
                     <p className="text-xs text-[#8C7E6E]">за сутки</p>
                   </div>
                 </div>
