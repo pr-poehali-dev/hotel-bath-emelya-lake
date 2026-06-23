@@ -36,7 +36,7 @@ function PromoPopup({ onClose }: { onClose: () => void }) {
           <div className="text-4xl mb-3">🎁</div>
           <h2 className="font-serif text-2xl text-[#7B3320] mb-2">На сайте бронировать дешевле!</h2>
           <p className="text-sm text-[#8C7E6E] leading-relaxed mb-5">
-            Бронируйте напрямую и получите <strong className="text-[#7B3320]">скидку 10%</strong> — просто укажите его в заявке.
+            Бронируйте напрямую и получите <strong className="text-[#7B3320]">скидку 10%</strong>. Скопируйте промо ключ, впишите его в специальное окно при бронировании на сайте и получите новые цены на проживание.
           </p>
 
           {/* Промокод */}
