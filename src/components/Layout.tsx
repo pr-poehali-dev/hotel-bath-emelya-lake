@@ -97,7 +97,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         style={{ background: "rgba(245,237,224,0.95)", backdropFilter: "blur(8px)" }}
       >
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link to="/" className="font-serif text-2xl text-[#7B3320]">Емеля</Link>
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="https://cdn.poehali.dev/projects/3774030f-afe0-41fc-93b3-45b1a765fe14/bucket/0606188c-899f-4c77-be89-1ffec7541ce8.jpg"
+              alt="Емеля"
+              className="h-10 w-auto"
+              style={{ mixBlendMode: "multiply" }}
+            />
+            <span className="font-serif text-2xl text-[#7B3320]">Емеля</span>
+          </Link>
           <nav className="hidden md:flex items-center gap-6">
             {NAV_LINKS.map(l => (
               <Link
